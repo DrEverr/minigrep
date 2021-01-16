@@ -3,9 +3,7 @@ use std::process;
 use minigrep::Config;
 
 fn main() {
-  let args: Vec<String> = args().collect();
-
-  let config = Config::new(&args).unwrap_or_else(|err| {
+  let config = Config::new(args()).unwrap_or_else(|err| {
     eprintln!("Problem occured: {}", err);
     println!("Usage: minigrep \"phrase_to_look_for\" \"path_to_file\"");
     process::exit(1);
